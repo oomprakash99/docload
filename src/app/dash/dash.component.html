@@ -1,4 +1,4 @@
-<!-- <div draggable="true" ngClass="{{dragAreaClass}}">
+<div draggable="true" ngClass="{{dragAreaClass}}">
 	<div class="row">
 		<div class="col-md-12 text-center">
 			Drag files here
@@ -7,7 +7,7 @@
 			</a>
 			<input type="file"
                    #file
-                   [multiple]="true"
+                   [multiple]="false"
                    (change)="onFileChange($event)"
                    style="display:none" />
         </div>
@@ -18,8 +18,8 @@
 	</div>
     <div>
 
-    </div> -->
-	<div class="text-center">
+    </div>
+	<!-- <div class="text-center">
 		<input class="form-control" type="file"
 				(change)="onChange($event)" multiple>
 	
@@ -27,17 +27,17 @@
 			class="btn btn-success">
 			Upload
 		</button>
-	</div>
+	</div> -->
 	
 	<!-- Shareable short link of uoloaded file -->
-	<div class="container text-center jumbotron"
+	<!-- <div class="container text-center jumbotron"
 		*ngIf="shortLink">
 		<h2> Visit Here</h2>
 		<a href="{{shortLink}}">{{shortLink}}</a>
-	</div>
+	</div> -->
 	
 	<!--Flag variable is used here-->
-	<div class="container" *ngIf="loading">
+	<!-- <div class="container" *ngIf="loading">
 		<h3>Loading ...</h3>
-	</div>
+	</div> -->
 	
