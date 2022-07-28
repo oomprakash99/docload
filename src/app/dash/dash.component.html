@@ -1,4 +1,4 @@
-<div draggable="true" ngClass="{{dragAreaClass}}">
+<!-- <div draggable="true" ngClass="{{dragAreaClass}}">
 	<div class="row">
 		<div class="col-md-12 text-center">
 			Drag files here
@@ -18,4 +18,26 @@
 	</div>
     <div>
 
-    </div>
+    </div> -->
+	<div class="text-center">
+		<input class="form-control" type="file"
+				(change)="onChange($event)" multiple>
+	
+		<button (click)="onUpload()"
+			class="btn btn-success">
+			Upload
+		</button>
+	</div>
+	
+	<!-- Shareable short link of uoloaded file -->
+	<div class="container text-center jumbotron"
+		*ngIf="shortLink">
+		<h2> Visit Here</h2>
+		<a href="{{shortLink}}">{{shortLink}}</a>
+	</div>
+	
+	<!--Flag variable is used here-->
+	<div class="container" *ngIf="loading">
+		<h3>Loading ...</h3>
+	</div>
+	
