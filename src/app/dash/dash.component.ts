@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import{HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'app-dash',
@@ -7,8 +8,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class DashComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
   
+
   error!: string;
   dragAreaClass!: string;
   onFileChange(event: any) {
@@ -51,6 +53,12 @@ export class DashComponent implements OnInit {
       this.error = "";
       // console.log(files[].size,files[].name,files[].type);
       console.log(files);
+      this.http.post('',files).subscribe((res)=>
+      {
+        console.log(res);
+      })
+      
+
     }
   }
 }
