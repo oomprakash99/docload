@@ -21,7 +21,7 @@ export class DashComponent implements OnInit {
   error!: string;
   dragAreaClass!: string;
   onFileChange(event: any) {
-    let file = event.target.file;
+    let file = event.target.files;
     this.saveFiles(file);
   }
   ngOnInit() {
