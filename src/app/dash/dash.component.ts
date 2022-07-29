@@ -16,12 +16,12 @@ export class DashComponent implements OnInit {
 
   // shortLink: string = "";
   //   loading: boolean = false; // Flag variable
-  //   file!: File;
+    file!: File;
 
   error!: string;
   dragAreaClass!: string;
   onFileChange(event: any) {
-    let file: File = event.target.file;
+    let file = event.target.file;
     this.saveFiles(file);
   }
   ngOnInit() {
@@ -47,11 +47,10 @@ export class DashComponent implements OnInit {
     this.dragAreaClass = "dragarea";
     event.preventDefault();
     event.stopPropagation();
-    if (event.dataTransfer.files) {
+    if (event.dataTransfer.file) {
       let file: File = event.dataTransfer.file;
+      console.log(file.name);
       this.saveFiles(file);
-      console.log(file.name)
-      
     }
   }
 
@@ -59,7 +58,7 @@ export class DashComponent implements OnInit {
 
       this.error = "";
       // console.log(files[].size,files[].name,files[].type);
-      // console.log(file);
+      console.log(this.file);
       this.fileUploadService.upload(file).subscribe((res)=>
       {
         console.log(res);
