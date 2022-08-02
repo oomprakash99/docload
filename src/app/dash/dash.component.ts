@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import{HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { FileUploadService } from '../services/file-upload.service';
 
 @Component({
@@ -9,14 +9,14 @@ import { FileUploadService } from '../services/file-upload.service';
 })
 export class DashComponent implements OnInit {
 
-  constructor(private http:HttpClient,
+  constructor(private http: HttpClient,
     private fileUploadService: FileUploadService) { }
-  
+
 
 
   // shortLink: string = "";
   //   loading: boolean = false; // Flag variable
-    file!: File;
+  file!: File;
 
   error!: string;
   dragAreaClass!: string;
@@ -25,7 +25,7 @@ export class DashComponent implements OnInit {
     this.saveFiles(file);
   }
   ngOnInit() {
-   this.dragAreaClass = "dragarea";
+    this.dragAreaClass = "dragarea";
   }
   @HostListener("dragover", ["$event"]) onDragOver(event: any) {
     this.dragAreaClass = "droparea";
@@ -56,28 +56,27 @@ export class DashComponent implements OnInit {
 
   saveFiles(file: File) {
 
-      this.error = "";
-      // console.log(files[].size,files[].name,files[].type);
-      console.log(this.file);
-      this.fileUploadService.upload(file).subscribe((res)=>
-      {
-        console.log(res);
-      });
-      
-
-    }
+    this.error = "";
+    // console.log(files[].size,files[].name,files[].type);
+    console.log(this.file);
+    this.fileUploadService.upload(file).subscribe((res) => {
+      console.log(res);
+    });
 
 
-//   onChange(event:any) {
-//     this.file = event.target.files[0];
-// }
+  }
 
-// // OnClick of button Upload
-// onUpload() {
-//     this.loading = !this.loading;
-//     console.log(this.file);
-//     this.fileUploadService.upload(this.file).subscribe(
-//         (event: any) => {}
-//         );
-// }
+
+  //   onChange(event:any) {
+  //     this.file = event.target.files[0];
+  // }
+
+  // // OnClick of button Upload
+  // onUpload() {
+  //     this.loading = !this.loading;
+  //     console.log(this.file);
+  //     this.fileUploadService.upload(this.file).subscribe(
+  //         (event: any) => {}
+  //         );
+  // }
 }
