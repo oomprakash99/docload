@@ -52,9 +52,8 @@ export class DashComponent implements OnInit {
 
     this.newFileArray = files;
     for (let File of files) {
-
-
       this.uploadService.upload(File);
+      console.log(File);
     }
     // this.uploadService.upload(this.newFileArray).subscribe((res)=>
     //   {

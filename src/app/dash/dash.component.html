@@ -5,17 +5,12 @@
 			<a href="javascript:void(0)" (click)="file.click()">
 				or click to open
 			</a>
-			<input type="file"
-                   #file
-                   [multiple]="true"
-                   (change)="onFileChange($event)"
-                   style="display:none" />
-        </div>
+			<input type="file" #file [multiple]="true" (change)="onFileChange($event)" style="display:none" />
 		</div>
 	</div>
-	<div class="error" *ngIf="error">
-		Only five files at time allow
-	</div>
-    <div>
-
-    </div>
+</div>
+<div class="error" *ngIf="error">
+	Only five files at time allow
+</div>
+<div>
+</div>
