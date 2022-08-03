@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import{HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-dash',
@@ -8,9 +9,10 @@ import{HttpClient} from '@angular/common/http'
 })
 export class DashComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
-  
+  constructor(private http: HttpClient,
+    private uploadService: UploadService) { }
 
+  newFileArray!: FileList;
   error!: string;
   dragAreaClass!: string;
   onFileChange(event: any) {
@@ -46,17 +48,18 @@ export class DashComponent implements OnInit {
     }
   }
 
-  saveFiles(files: FileList) {
+  saveFiles(files: any) {
 
-    if (files.length > 5) this.error = "Only five files at time allowed";
-    else {
-      this.error = "";
-      // console.log(files[].size,files[].name,files[].type);
-      console.log(files);
-      this.http.post('',files).subscribe((res)=>
-      {
-        console.log(res);
-      })
+    this.newFileArray = files;
+    for (let File of files) {
+
+
+      this.uploadService.upload(File);
     }
+    // this.uploadService.upload(this.newFileArray).subscribe((res)=>
+    //   {
+    //     console.log(this.newFileArray)
+    //   });
+
   }
 }
