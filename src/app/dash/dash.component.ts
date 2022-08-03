@@ -57,8 +57,6 @@ export class DashComponent implements OnInit {
       {
         console.log(res);
       })
-      
-
     }
   }
 }
